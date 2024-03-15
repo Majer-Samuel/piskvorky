@@ -11,12 +11,20 @@ public class Gamestate {
         }
     }
         
+    /*
+     * Fill the square for the specified player.
+     * @throws when square at specified coordinates is already filled
+     */
     public void put(int x, int y, Player player) throws IllegalArgumentException {
         if (this.gamestate[x][y] != null) {
           throw new IllegalArgumentException("Square is alredy taken");
         }
         this.gamestate[x][y] = player;
     }
+    /*
+     * Checks wether anyone has won
+     * @return the player who won or null if nobody won yet
+     */
     public Player hasWon() {
         // check collumns
         for (int x = 0; x < 3; x++) {
